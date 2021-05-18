@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {HeaderCartButton} from '../Cart/HeaderCartButton';
 
 
 
@@ -9,8 +10,8 @@ export const Header = () => {
         <>
         <header className="header">
             <h1>Shell Shack</h1>
-            <button>Cart</button>
+            <HeaderCartButton />
         </header>
         </>
-    )
-}
+    );
+};
