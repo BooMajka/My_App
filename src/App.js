@@ -8,11 +8,11 @@ import {Meals} from './components/Meals/Meals';
 export const App = () => {
 
   return (
+    
     <>
         <Header/>
-          <main>
-            <Meals/>
-          </main>
+        <Meals/>
+         
     </>
   
   );
