@@ -17,6 +17,7 @@ export const HeaderCartButton = (props) => {
         <span>Your Cart</span>
         <span className="badge">3</span>
     </button>
+    {isModalOpen && <div className="back-plate" onClose={setModalOpen}/>}
     {isModalOpen && <Cart onClose={setModalOpen}/>}
     </>
     )

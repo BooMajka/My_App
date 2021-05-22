@@ -18,7 +18,7 @@ export const Cart = ({onClose}) => {
            </ul>
         </div>
         <div className="total">
-            <span>Todal Amount</span>
+            <span>Total Amount</span>
             <span>$36.62</span>
         </div>
         <div className="actions">
