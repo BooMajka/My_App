@@ -4,12 +4,12 @@ import {MealsSummary} from './MealsSummary';
 import {AvailableMeals} from './AvailableMeals';
 
 
-export const Meals = () => {
+export const Meals = ({getCart}) => {
  
   return (
     <>
         <MealsSummary/>
-        <AvailableMeals/>
+        <AvailableMeals getCart={getCart}/>
     </>
 );
 };

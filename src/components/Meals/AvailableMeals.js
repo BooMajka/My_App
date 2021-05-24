@@ -5,7 +5,7 @@ import {db} from "../../firebase";
 import {Card} from "../UI/Card";
 import {MealItem} from "./MealItem";
 
-export const AvailableMeals = () => {
+export const AvailableMeals = ({getCart}) => {
     const[food, setFood] = useState([]);
   
   
@@ -27,12 +27,13 @@ export const AvailableMeals = () => {
     });
     
   }, []);
-    
+  
+  
     return (
         <section className="meals">
           <Card>
         <ul>
-        {food.map(({name, description, price, id}) => <MealItem name={name} description={description} price={price} id={id}/>
+        {food.map(({name, description, price, id}) => <MealItem  getCart={getCart} name={name} description={description} price={price} id={id}/>
       )}
       </ul>
       </Card>

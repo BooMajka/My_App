@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import {Input} from '../UI/Input';
 
-export const MealItemForm = (props) => {
+export const MealItemForm = ({getCart, name, description, price, id}) => {
   const [inputAmount, setInputAmount] = useState([1]);
   
   const changeImputAmount = (e) => {
@@ -12,6 +12,8 @@ export const MealItemForm = (props) => {
     
     const submitHandler = event => {
         event.preventDefault();
+        
+        getCart(id, name, price, amount.value);
     };
     
     return (
