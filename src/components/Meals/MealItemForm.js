@@ -1,36 +1,21 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Input} from '../UI/Input';
 
 export const MealItemForm = ({getCart, name, description, price, id}) => {
-  const [inputAmount, setInputAmount] = useState([1]);
-  
-  const changeImputAmount = (e) => {
-    const {value} = e.target;
-    setInputAmount(value);
-  };
+    const [amount, setInputAmount] = useState('');
     
-    const submitHandler = event => {
+    const submitHandler = (event) => {
         event.preventDefault();
-        
-        getCart(id, name, price, amount.value);
-    };
+    }
     
     return (
-      <form className="form" onSumbit={submitHandler}>
-        <Input
-        onChange={changeImputAmount}
-          label='Amount'
-          input={{
-            id: 'amount',
-            type: 'number',
-            min: '1',
-            max: '5',
-            step: '1',
-            defaultValue: '1',
-          }}
-        />
-        <button>+ Add</button>
-      </form>
+        <form className="form" onSubmit={submitHandler}>
+
+            <div className="input">
+                <label htmlFor="amount">Amount</label>
+                <input onChange={e => setInputAmount(e.target.value)} id="amount" type="number" min="1" max="5" step="1" defaultValue="1" value={amount} />
+            </div>
+            <button onClick={() => getCart(id, name, price, amount)}>+ Add</button>
+        </form>
     );
-  };
+};

@@ -1,14 +1,22 @@
 import React, {useState} from 'react';
-
+import {Header} from "../Layout/Header";
+import {Meals} from "../Meals/Meals";
 
 export const CartStore = () => {
-    const getCart = ({id, name, price, amount}) => {
-        console.log(id, name, price, amount );
+    const [cart, setCart] = useState([]);
+
+    const getCart = (id, name, price, amount) => {
+        setCart(prev => [...prev, {
+            id: id,
+            name: name,
+            price: price,
+            amount
+        }])
     }
-    
+
     return (
         <>
-        <Header/>
+        <Header cart={cart}/>
         <Meals getCart={getCart}/>
         </>
     )

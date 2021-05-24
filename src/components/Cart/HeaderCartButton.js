@@ -6,12 +6,8 @@ import {CartIcon} from './CartIcon';
 import {Cart} from './Cart';
 
 
-
-
-export const HeaderCartButton = (props) => {
+export const HeaderCartButton = ({cart}) => {
     const [isModalOpen, setModalOpen] = useState(false);
-
-
     
     return (
         <>
@@ -23,7 +19,7 @@ export const HeaderCartButton = (props) => {
         <span className="badge">0</span>
     </button>
     {isModalOpen && <div className="back-plate" onClose={setModalOpen}/>}
-    {isModalOpen && <Cart onClose={setModalOpen}/>}
+    {isModalOpen && <Cart cart={cart} onClose={setModalOpen}/>}
     </>
     )
-};
+}

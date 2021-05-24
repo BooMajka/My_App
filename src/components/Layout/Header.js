@@ -5,12 +5,12 @@ import {HeaderCartButton} from '../Cart/HeaderCartButton';
 
 
 
-export const Header = () => {
+export const Header = ({cart}) => {
     return (
         <>
         <header className="header">
             <h1>Shell Shack</h1>
-            <HeaderCartButton />
+            <HeaderCartButton cart={cart}/>
         </header>
         </>
     );
