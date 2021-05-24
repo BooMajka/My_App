@@ -34,14 +34,20 @@
 
 .cart-items {
     list-style: none;
-    padding: 2rem;
+    padding: 1rem;
     width:100%;
     overflow: none;
     color:$grey_water;
     font-family: $font-open-sans;
     font-size: 1.6rem;
     line-height: 2.4rem;
- 
+  }
+  .cart-li {
+    min-width: 20rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .total {
@@ -132,3 +138,4 @@
     padding: 0 .5rem;
     width: auto;
   }
+ 

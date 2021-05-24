@@ -14,6 +14,9 @@ export const OrderForm = () => {
     const handleInputChange = (e) => {
         const {value} = e.target;
         setInputs(value);
+        
+        
+        
         };
         
         const handleSubmit = e => {
