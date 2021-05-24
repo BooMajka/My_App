@@ -1,23 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Input} from '../UI/Input';
 
-export const MealItemForm = () => {
-    const input = {
-        id: "Math.floor(Math.random()*100)",
-       type: "number", 
-       min: "1",
-       max: "5",
-       step: "1",
-       defaultValue: "1",
+export const MealItemForm = (props) => {
+    const submitHandler = event => {
+        event.preventDefault();
     };
     
     return (
-        <form className="form">
-            <div className="input">
-                <label name={input.id}>Amount</label>
-                <input name="input" {...input}/>
-            </div>
-            <button>+ Add</button>
-        </form>
+      <form className="form" onSumbit={submitHandler}>
+        <Input
+          label='Amount'
+          input={{
+            id: 'amount',
+            type: 'number',
+            min: '1',
+            max: '5',
+            step: '1',
+            defaultValue: '1',
+          }}
+        />
+        <button>+ Add</button>
+      </form>
     );
-};
+  };

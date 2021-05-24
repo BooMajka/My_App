@@ -4,17 +4,14 @@ import {useState} from 'react';
 import {useContext} from 'react';
 import {CartIcon} from './CartIcon';
 import {Cart} from './Cart';
-import {CartContext} from '../../store/cart-context';
+
 
 
 
 export const HeaderCartButton = (props) => {
     const [isModalOpen, setModalOpen] = useState(false);
-    const cartCtx = useContext(CartContext);
-    
-    const numberOdCartItems = cartCtx.items.reduce((curNumber, item) => {
-        return curNumber + item.amount;
-    },0);
+
+
     
     return (
         <>
@@ -23,7 +20,7 @@ export const HeaderCartButton = (props) => {
             <CartIcon />
         </span>
         <span>Your Cart</span>
-        <span className="badge">{numberOdCartItems}</span>
+        <span className="badge">0</span>
     </button>
     {isModalOpen && <div className="back-plate" onClose={setModalOpen}/>}
     {isModalOpen && <Cart onClose={setModalOpen}/>}
