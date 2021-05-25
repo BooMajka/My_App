@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {MealItemForm} from './MealItemForm';
-import {CartStore} from '../Cart/CartStore';
+
 
 export const MealItem = ({getCart, name, description, price, id}) => {
   const priceNew = `$${price.toFixed(2)}`;

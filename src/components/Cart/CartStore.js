@@ -3,6 +3,7 @@ import {Header} from "../Layout/Header";
 import {Meals} from "../Meals/Meals";
 
 export const CartStore = () => {
+    
     const [cart, setCart] = useState([]);
 
     const getCart = (id, name, price, amount) => {
@@ -10,10 +11,18 @@ export const CartStore = () => {
             id: id,
             name: name,
             price: price,
-            amount
-        }])
+            amount:amount,
+        }]);
     }
-
+    const removeItem = (id) => { 
+        cart.filter(el => {
+        
+        return el.id !== id;
+    });
+    
+    // setCart(removeItem);
+}
+    
     return (
         <>
         <Header cart={cart}/>

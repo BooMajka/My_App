@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import ReactDOM from 'react-dom';
+
 
 
 export const OrderForm = () => {
+    const [error, setError] = useState([]);
     const [inputs, setInputs] = useState({
         user: "",
         surname: "",
@@ -13,20 +14,29 @@ export const OrderForm = () => {
     
     const handleInputChange = (e) => {
         const {value} = e.target;
-        setInputs(value);
-        
-        
-        
+        setInputs(value);    
         };
         
         const handleSubmit = e => {
             e.preventDefault();
             
-            if(inputs.name.length < 2 || inputs.surname.length < 2 || inputs.address.length < 2 ) {
-            return <p>Text is too short</p>
+            const errors = [];
+            
+            if(inputs.user.length < 2 ) {
+            errors.push("Name is too short");
             } 
-            return <p>Your order has been submitted</p>
-        }
+            
+            if(inputs.surname.length < 2 ) {
+            errors.push("Surname is too short"); 
+            }
+            
+            if(inputs.address.length < 2 ) {
+            errors.push("Address is too short"); 
+            }
+            
+            setError(errors);
+        };
+        
     
     return (
         <form className="order-form" onSubmit={handleSubmit}>
@@ -35,6 +45,7 @@ export const OrderForm = () => {
             <input value={inputs.address} name="address" placeholder="address" onChange={handleInputChange} />
             <input value={inputs.phone} name="phone" placeholder="phone number" onChange={handleInputChange} />
             <button className="button">Submit</button>
+             {error.map(el => <p className="error">{el}</p>)} 
         </form>
     )
 }

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
+
 
 export const MealItemForm = ({getCart, name, description, price, id}) => {
     const [amount, setInputAmount] = useState('');

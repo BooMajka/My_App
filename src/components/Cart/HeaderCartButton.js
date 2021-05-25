@@ -1,13 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {useState} from 'react';
-import {useContext} from 'react';
 import {CartIcon} from './CartIcon';
 import {Cart} from './Cart';
 
 
 export const HeaderCartButton = ({cart}) => {
     const [isModalOpen, setModalOpen] = useState(false);
+    
+
+    const result = cart.reduce((prev, curr) => {
+       return prev + parseInt(curr.amount)
+    },0);
     
     return (
         <>
@@ -16,7 +19,7 @@ export const HeaderCartButton = ({cart}) => {
             <CartIcon />
         </span>
         <span>Your Cart</span>
-        <span className="badge">0</span>
+        <span className="badge">{result}</span>
     </button>
     {isModalOpen && <div className="back-plate" onClose={setModalOpen}/>}
     {isModalOpen && <Cart cart={cart} onClose={setModalOpen}/>}

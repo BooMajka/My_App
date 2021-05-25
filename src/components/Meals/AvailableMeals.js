@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {useState, useEffect} from "react";
 import {db} from "../../firebase";
 import {Card} from "../UI/Card";
 import {MealItem} from "./MealItem";
-import {CartStore} from '../Cart/CartStore';
+
 
 export const AvailableMeals = ({getCart}) => {
     const[food, setFood] = useState([]);
