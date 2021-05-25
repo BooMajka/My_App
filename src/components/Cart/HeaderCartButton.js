@@ -4,7 +4,7 @@ import {CartIcon} from './CartIcon';
 import {Cart} from './Cart';
 
 
-export const HeaderCartButton = ({cart}) => {
+export const HeaderCartButton = ({cart, removeItem}) => {
     const [isModalOpen, setModalOpen] = useState(false);
     
 
@@ -22,7 +22,7 @@ export const HeaderCartButton = ({cart}) => {
         <span className="badge">{result}</span>
     </button>
     {isModalOpen && <div className="back-plate" onClose={setModalOpen}/>}
-    {isModalOpen && <Cart cart={cart} onClose={setModalOpen}/>}
+    {isModalOpen && <Cart removeItem={removeItem} cart={cart} onClose={setModalOpen}/>}
     </>
     )
 }

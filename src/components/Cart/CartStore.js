@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Header} from "../Layout/Header";
 import {Meals} from "../Meals/Meals";
+import {db} from "../../firebase";
 
 export const CartStore = () => {
     
@@ -14,18 +15,19 @@ export const CartStore = () => {
             amount:amount,
         }]);
     }
-    const removeItem = (id) => { 
-        cart.filter(el => {
-        
-        return el.id !== id;
-    });
-    
-    // setCart(removeItem);
+
+    const removeItem = oneCart => {
+        console.log(oneCart);
+        const result = cart.filter(element => {
+            console.log(element);
+            return element.id !== oneCart.id
+        })
+        setCart(result);
 }
     
     return (
         <>
-        <Header cart={cart}/>
+        <Header cart={cart} removeItem={removeItem}/>
         <Meals getCart={getCart}/>
         </>
     )
